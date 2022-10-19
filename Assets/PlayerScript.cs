@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-
+    public static PlayerScript instance;
     public int puntaje;
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
